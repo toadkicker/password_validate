@@ -1,1 +1,56 @@
-This is just a very basic password validator. It needs a little love before its really usable.
+jQuery Password Validator
+=========================
+by toadkicker
+
+This is a very basic password validator. It provides:
+
++ Completely extensisble using jQuery standard plugin architecture
++ Min/Max length checking
++ Pattern matching
++ Validate password and confirm match before submit
++ Does not care abour your html structure
++ Relies on custom HTML5 data-field attribute to bind to form elements
+
+The options
+-----------
+
+Below are the default options.
+
++ events : ['keyup', 'blur']
++ minLength : 0
++ maxLength: 256
++ timerDelay : 100
++ passwordField : "[data-field='pw']"
++ passwordFieldValidation :  "[data-field='pw-valid-msg']"
++ confirmField : "[data-field='pw-confirm']"
++ confirmFieldValidation :  "[data-field='pw-confirm-msg']"
++ tooLongMessage : "Password is too long!"
++ tooShortMessage : "Password is too short!"
+
+You can override or add options/callbacks using the options object like so:
+
+$('#myform').pwvalidate({ 
+  newCallback: function() { ... },
+  minLength: 8,
+  etc: ...
+})
+
+Some gotchas:
+
+I am going to assume you're only going to have one input for password
+and one input for confirming it. If jQuery cannot find the second field, I assume
+this is a login form and not a signup form, and then the logic for checking the
+confirm field is ignored.
+
+You don't need to write a single line of javascript for this plugin to be active.
+It will look for the data-field attributes and bind the events to those selectors;
+even if there are more than one. This is where most people make mistakes setting it
+up. You don't have to use them of course, as I provide you with the ability to use
+any HTML selector jQuery supports. If you are changing the default values,
+then you're writing javascript. The point of my javascript plugins is so the developer
+only has to include them and add an unobtrusive data-attr to their HTML to bind them to.
+
+Versions
+--------
+
+0.1 Initial Release. Min/Max length check, pattern matching, and initial structure of plugin.
