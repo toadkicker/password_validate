@@ -29,13 +29,13 @@
       return( pw1 == pw2 );
     },
     length : function(){
-      var pw_length = $(.defaults.passwordField).val().length();
+      var pw_length = $(defaults.passwordField).val().length();
       switch (pw_length) {
         case ( pw_length >= defaults.maxLength ) : return defaults.tooLongMessage;
         case ( pw_length >= defaults.minLength ) : return defaults.tooShortMessage;
       }
     },
-    mi/snLength : function() {// true = too short
+    minLength : function() {// true = too short
       var pw1 = $(defaults.pwField).val().length();
       pw1 < defaults.minLength ? true : false;
     },
