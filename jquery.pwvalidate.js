@@ -29,15 +29,15 @@
       return( pw1 == pw2 );
     },
     length : function(){
-      var pw_length = $(settings.passwordField).val().length();
+      var pw_length = $(.defaults.passwordField).val().length();
       switch (pw_length) {
-        case ( pw_length >= settings.maxLength ) : return settings.tooLongMessage;
-        case ( pw_length >= settings.minLength ) : return settings.tooShortMessage;
+        case ( pw_length >= defaults.maxLength ) : return defaults.tooLongMessage;
+        case ( pw_length >= defaults.minLength ) : return defaults.tooShortMessage;
       }
     },
-    minLength : function() {// true = too short
-      var pw1 = $(settings.pwField).val().length();
-      pw1 < settings.minLength ? true : false;
+    mi/snLength : function() {// true = too short
+      var pw1 = $(defaults.pwField).val().length();
+      pw1 < defaults.minLength ? true : false;
     },
     delay : function() {// we want a short delay before giving the user feedback, otherwise this is a really annoying plugin
       var timer = 0;
